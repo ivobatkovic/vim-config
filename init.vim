@@ -2,7 +2,7 @@ nnoremap <SPACE> <Nop>
 let mapleader="\<Space>"
 
 syntax on
-set number
+set number relativenumber
 set noswapfile
 set hlsearch
 set ignorecase
@@ -12,7 +12,6 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set noautochdir
-"set number relativenumber
 
 " Copy to clipboard
 vnoremap <leader>y "+y
@@ -293,6 +292,11 @@ local servers = {
         end
     },
     ccls = {
+        init_options = {
+            completion = {
+                placeholder = false;
+            }
+        },
         filetypes = { "c", "cpp", "objc", "objcpp" },
         root_dir = util.root_pattern(".git"),
         clang = {
